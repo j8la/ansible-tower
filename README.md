@@ -1,5 +1,4 @@
 # Ansible Tower Docker Image
-=====
 
 The image built to docker from this repository contains the 3.0.2 version of Ansible Tower and must be used for testing purposes. 
 
