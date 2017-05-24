@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 
 MAINTAINER Julien Blanc <jbla@tuta.io>
 
-ENV ANSIBLE_TOWER_VER 3.0.2
+ENV ANSIBLE_TOWER_VER 3.1.3
 EXPOSE 443 8080
 
 RUN apt-get update \
@@ -20,12 +20,11 @@ RUN tar xvzf ansible-tower-setup-${ANSIBLE_TOWER_VER}.tar.gz \
     && mv ansible-tower-setup-${ANSIBLE_TOWER_VER} /opt/ansible-tower
 
 ADD start.sh start.sh
-ADD inventory.sh /opt/ansible-tower/inventory.sh
-ADD config_dynamic.yml /opt/ansible-tower/roles/config_dynamic/tasks/main.yml
+ADD custom.sh /opt/ansible-tower/custom.sh
 
 RUN chmod +x start.sh
-RUN chmod +x /opt/ansible-tower/inventory.sh
-RUN /opt/ansible-tower/inventory.sh
+RUN chmod +x /opt/ansible-tower/custom.sh
+RUN /opt/ansible-tower/custom.sh
 RUN /opt/ansible-tower/setup.sh \
     && rm -rf /opt/ansible-tower
 
