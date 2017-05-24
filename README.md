@@ -13,7 +13,7 @@ Then connect to https://[IP] with the following account :
 * Password: password
 
 ### Passwords
-The Redis and Postgres passwords are same and automatically generated from a SHA 256 random hash when building the image. You can find it with the following :
+The RabbitMQ & Postgres passwords are same and automatically generated from a SHA 256 random hash when building the image. You can find it with the following :
 ```sh
 # docker exec [image] cat /opt/ansible-tower-password
 ```
