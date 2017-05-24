@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER Julien Blanc <jbla@tuta.io>
 
 ENV ANSIBLE_TOWER_VER 3.1.3
-EXPOSE 443 8080
+EXPOSE 80 443
 
 RUN apt-get update \
     && yes | apt-get install software-properties-common \

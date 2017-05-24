@@ -14,7 +14,7 @@ Then connect to https://[IP] with the following account :
 
 To successfully stop the container without a 137 error code, increase the default timeout (10s) before the SIGKILL with :
 ```sh
-# docker stop -t 30 tower
+# docker stop -t 30 [name]
 ```
 
 ### Passwords
