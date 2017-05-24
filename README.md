@@ -12,10 +12,20 @@ Then connect to https://[IP] with the following account :
 * Login : admin
 * Password: password
 
+To successfully stop the container without a 137 error code, increase the default timeout (10s) before the SIGKILL with :
+```sh
+# docker stop -t 30 tower
+```
+
 ### Passwords
 The RabbitMQ & Postgres passwords are same and automatically generated from a SHA 256 random hash when building the image. You can find it with the following :
 ```sh
 # docker exec [image] cat /opt/ansible-tower-password
+```
+
+### Get old versions
+```sh
+# docker pull jbla/ansible-tower:release-3.0.2
 ```
 
 =====
