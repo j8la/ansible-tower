@@ -6,7 +6,7 @@ The image built to docker from this repository contains the 3.1.3 version of Ans
 Pull & start :
 ```sh
 # docker pull jbla/ansible-tower
-# docker run -d -p 8080:8080 -p 443:443 ansible-tower
+# docker run -d -p 443:443 ansible-tower
 ```
 Then connect to https://[IP] with the following account :
 * Login : admin
