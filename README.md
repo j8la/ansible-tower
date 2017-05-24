@@ -20,7 +20,7 @@ To successfully stop the container without a 137 error code, increase the defaul
 ### Passwords
 The RabbitMQ & Postgres passwords are same and automatically generated from a SHA 256 random hash when building the image. You can find it with the following :
 ```sh
-# docker exec [image] cat /opt/ansible-tower-password
+# docker exec [name] cat /opt/ansible-tower-password
 ```
 
 ### Get old versions
