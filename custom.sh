@@ -59,6 +59,3 @@ EOL
 locale-gen en_US.UTF-8
 dpkg-reconfigure locales
 update-locale
-
-# Install libpython2.7
-yes | apt-get install libpython2.7

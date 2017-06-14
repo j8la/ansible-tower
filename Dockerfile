@@ -5,12 +5,17 @@ MAINTAINER Julien Blanc <jbla@tuta.io>
 ENV ANSIBLE_TOWER_VER 3.1.3
 EXPOSE 80 443
 
-RUN apt-get update \
+RUN yes | apt-get update \
     && yes | apt-get install software-properties-common \
     && yes | apt-add-repository ppa:ansible/ansible \
-    && apt-get update \
-    && yes | apt-get install ansible \
-    && yes | apt-get install wget
+    && yes | apt-get update \
+    && yes | apt-get install ansible wget libpython2.7 
+    
+RUN yes | apt-get install ssh \
+    && mkdir ~/.ssh \
+    && service ssh start \
+    && ssh-keyscan -H 127.0.0.1 > ~/.ssh/known_hosts \
+    && service ssh stop
 
 WORKDIR /opt
 
@@ -27,5 +32,7 @@ RUN chmod +x /opt/ansible-tower/custom.sh
 RUN /opt/ansible-tower/custom.sh
 RUN /opt/ansible-tower/setup.sh \
     && rm -rf /opt/ansible-tower
+
+RUN pip install pyvmomi pysphere
 
 ENTRYPOINT exec /opt/start.sh
